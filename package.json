@@ -1,0 +1,24 @@
+{
+  "name": "adventofcode-2018",
+  "version": "1.0.0",
+  "description": "Challenges for Advent of Code 2018 written in JavaScript with Node.js",
+  "private": true,
+  "main": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richiksc/adventofcode-2018.git"
+  },
+  "keywords": [
+    "advent-of-code",
+    "advent-of-code-2018"
+  ],
+  "author": "Richik SC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richiksc/adventofcode-2018/issues"
+  },
+  "homepage": "https://github.com/richiksc/adventofcode-2018#readme"
+}
