@@ -28,18 +28,18 @@ console.log('part1 Runtime:', performance.now() - part1_timeStart);
 PART TWO
 --------
 */
-let seenFreqs = [0];
+let seenFreqs = new Set([0]);
 let sum = 0;
 let position = 0;
 
 let part2_timeStart = performance.now();
 while (true) {
   sum += numbers[position];
-  if (seenFreqs.includes(sum)) {
+  if (seenFreqs.has(sum)) {
     console.log('First repeated frequency: ' + sum);
     break;
   }
-  seenFreqs.push(sum);
+  seenFreqs.add(sum);
   if (position == numbers.length - 1) {
     position = 0;
   } else {
