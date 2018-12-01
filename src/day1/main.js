@@ -8,7 +8,7 @@ PART ONE
 --------
 */
 
-const input = fs.readFileSync(path.resolve(__dirname, 'day1-input.txt'), {
+const input = fs.readFileSync(path.resolve(__dirname, 'input.txt'), {
   encoding: 'UTF-8'
 });
 
