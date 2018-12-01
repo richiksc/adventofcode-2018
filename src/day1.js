@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { performance } = require('perf_hooks');
 
 /*
 --------
@@ -13,11 +14,14 @@ const input = fs.readFileSync(path.resolve(__dirname, 'day1-input.txt'), {
 
 let numbers = input.trim().split('\n').map(el =>  parseInt(el, 10));
 
+let part1_timeStart = performance.now();
 console.log(
   numbers.reduce((acc, curr) => {
     return acc + curr;
   }, 0)
 );
+
+console.log('part1 Runtime:', performance.now() - part1_timeStart);
 
 /*
 --------
@@ -28,6 +32,7 @@ let seenFreqs = [0];
 let sum = 0;
 let position = 0;
 
+let part2_timeStart = performance.now();
 while (true) {
   sum += numbers[position];
   if (seenFreqs.includes(sum)) {
@@ -41,3 +46,6 @@ while (true) {
     position++;
   }
 }
+let part2_timeEnd = performance.now();
+
+console.log('part2 runtime:', part2_timeEnd - part2_timeStart);
