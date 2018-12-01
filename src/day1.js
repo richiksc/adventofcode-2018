@@ -33,6 +33,7 @@ let sum = 0;
 let position = 0;
 
 let part2_timeStart = performance.now();
+
 while (true) {
   sum += numbers[position];
   if (seenFreqs.has(sum)) {
@@ -46,6 +47,5 @@ while (true) {
     position++;
   }
 }
-let part2_timeEnd = performance.now();
 
-console.log('part2 runtime:', part2_timeEnd - part2_timeStart);
+console.log('part2 runtime:', performance.now() - part2_timeStart);
