@@ -36,11 +36,13 @@ console.log("Checksum: ", has2 * has3);
 let matches = [];
 let solution = '';
 
-for (let boxId1 of boxIds) {
+for (let i = 0; i < boxIds.length; i++) {
+  let boxId1 = boxIds[i];
 
   boxId2Loop:
-  for (let boxId2 of boxIds) {
-
+  for (let j = i + 1; j < boxIds.length; j++) {
+    let boxId2 = boxIds[j];
+    
     let differingChars = 0;
     let commonChars = '';
 
