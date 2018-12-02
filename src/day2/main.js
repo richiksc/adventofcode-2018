@@ -13,7 +13,6 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 let has2 = 0;
 let has3 = 0;
 
-boxIdLoop:
 for (let boxId of boxIds) {
   let boxIdHas2 = 0;
   let boxIdHas3 = 0;
@@ -30,3 +29,41 @@ for (let boxId of boxIds) {
 }
 
 console.log("Checksum: ", has2 * has3);
+
+
+// PART TWO:
+
+let matches = [];
+let solution = '';
+
+for (let boxId1 of boxIds) {
+
+  boxId2Loop:
+  for (let boxId2 of boxIds) {
+
+    let differingChars = 0;
+    let commonChars = '';
+
+    for (let i = 0; i < boxId1.length; i++) {
+      if (boxId1.charAt(i) != boxId2.charAt(i)) {
+        differingChars++;
+      } else {
+        commonChars += boxId1.charAt(i);
+      }
+      if (differingChars > 1) {
+        continue boxId2Loop;
+      }
+
+    }
+
+    if (differingChars > 0) {
+      matches.push(boxId1, boxId2);
+      solution = commonChars;
+    }
+
+  }
+
+}
+
+console.log(matches);
+console.log(solution);
