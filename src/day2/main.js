@@ -14,18 +14,18 @@ let has2 = 0;
 let has3 = 0;
 
 for (let boxId of boxIds) {
-  let boxIdHas2 = 0;
-  let boxIdHas3 = 0;
+  let boxIdHas2 = false;
+  let boxIdHas3 = false;
   for (let letter of letters) {
     let numInstances = (boxId.match(new RegExp(letter, 'g')) || []).length;
     if (numInstances == 2) {
-      boxIdHas2++;
+      boxIdHas2 = true;
     } else if (numInstances == 3) {
-      boxIdHas3++;
+      boxIdHas3 = true;
     }
   }
-  has2 += (boxIdHas2 > 0 ? 1 : 0);
-  has3 += (boxIdHas3 > 0 ? 1 : 0);
+  has2 += (boxIdHas2 ? 1 : 0);
+  has3 += (boxIdHas3 ? 1 : 0);
 }
 
 console.log("Checksum: ", has2 * has3);
@@ -42,7 +42,7 @@ for (let i = 0; i < boxIds.length; i++) {
   boxId2Loop:
   for (let j = i + 1; j < boxIds.length; j++) {
     let boxId2 = boxIds[j];
-    
+
     let differingChars = 0;
     let commonChars = '';
 
