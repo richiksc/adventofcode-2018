@@ -17,6 +17,6 @@ module.exports = {
         path.dirname(module.parent.filename), 'input.txt'
       ),
       'UTF-8'
-    );
+    ).trim();
   }
 }
