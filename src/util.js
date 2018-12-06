@@ -8,7 +8,10 @@ module.exports = {
    *
    * @returns {string} input.txt's contents as a string
    */
-  input() {
+  input(debug) {
+    if (process.argv.slice(2).includes('--debug') && debug != null) {
+      return debug;
+    }
     return fs.readFileSync(
       path.resolve(
         path.dirname(module.parent.filename), 'input.txt'
