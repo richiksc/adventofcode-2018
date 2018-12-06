@@ -1,10 +1,10 @@
 const input = require('../util').input('dabAcCaCBAcCcaDAdabAcCaCBAcCcaDA');
 
 // PART ONE
-
-let reduced = false;
-let output = input;
-while (!reduced) {
+function reactPolymer(polymer) {
+  let reduced = false;
+  let output = polymer;
+  while (!reduced) {
     reduced = true;
     for (let i = 1; i < output.length - 1; i++) {
       let currentChar = output.charAt(i);
@@ -32,6 +32,25 @@ while (!reduced) {
         }
       }
     }
+  }
+  return output;
 }
 
-console.log(input.length + ' -> ' + output.length);
+const partOneSolution = reactPolymer(input);
+
+let minLength = partOneSolution.length;
+let removedChar = '';
+
+for (let c = 97; c <= 122; c++) {
+  // Remove all instances of c case-insensitively
+  let removed = input.replace(new RegExp(String.fromCharCode(c), 'gi'), '');
+  let reacted = reactPolymer(removed);
+  if (reacted.length < minLength) {
+    minLength = reacted.length;
+    removedChar = String.fromCharCode(c);
+  }
+}
+
+console.log(removedChar, minLength);
+
+console.log(input.length + ' -> ' + partOneSolution.length);
